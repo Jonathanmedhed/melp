@@ -1,0 +1,189 @@
+/** Colors */
+/** Main Color Scheme */
+$primary-color: #0e4263;
+$dark-color: #0b212e;
+$light-color: #256584;
+$gray-dark-color: rgb(151, 151, 151);
+$gray-color: rgb(192, 192, 192);
+/** Other Color Scheme */
+$caution-color: #c7ca1f;
+$caution-dark-color: #a1a319;
+$caution-light-color: #e1e423;
+$danger-color: #dc3545;
+$danger-dark-color: #b92d3b;
+$danger-light-color: #ee394b;
+$default-color: rgb(204, 204, 204);
+$font-color: #333;
+$success-color: #28a745;
+$success-dark-color: #1f8537;
+$success-light-color: #32ce56;
+$white-color: whitesmoke;
+$white-dark-color: rgb(223, 223, 223);
+$white-light-color: rgb(255, 255, 255);
+$facebook-color: #3b5998;
+$email-color: orange;
+$instagram-color: #3f729b;
+$linkedin-color: #0077b5;
+$phone-color: #25d366;
+$twitter-color: #38a1f3;
+$youtube-color: #c4302b;
+
+/** Color Functions */
+/** Set text color based on background */
+@function set-text-color($color) {
+  @if (lightness($color) > 60) {
+    @return #333;
+  } @else {
+    @return #fff;
+  }
+}
+/** Set background and text color */
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color);
+}
+
+/** Font Size */
+$sizeamounts: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+@each $size in $sizeamounts {
+  .f-#{$size} {
+    font-size: #{$size}rem;
+  }
+}
+
+/** Margin & Padding */
+$spaceamounts: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+@each $space in $spaceamounts {
+  /** Margin */
+  // All around margin
+  .m-#{$space} {
+    margin: #{$space}rem;
+  }
+  // Vertical margin
+  .my-#{$space} {
+    margin: #{$space}rem 0;
+  }
+  // Horizontal margin
+  .mx-#{$space} {
+    margin: 0 #{$space}rem;
+  }
+  // Top margin
+  .mt-#{$space} {
+    margin: #{$space}rem 0 0 0;
+  }
+  // Bottom margin
+  .mb-#{$space} {
+    margin: 0 0 #{$space}rem 0;
+  }
+  // Left margin
+  .ml-#{$space} {
+    margin: 0 0 0 #{$space}rem;
+  }
+  // Right margin
+  .mr-#{$space} {
+    margin: 0 #{$space}rem 0 0;
+  }
+  /** Padding */
+  // All around padding
+  .p-#{$space} {
+    padding: #{$space}rem;
+  }
+  // Vertical padding
+  .py-#{$space} {
+    padding: #{$space}rem 0;
+  }
+  // Horizontal padding
+  .px-#{$space} {
+    padding: 0 #{$space}rem;
+  }
+  // Top padding
+  .pt-#{$space} {
+    padding: #{$space}rem 0 0 0;
+  }
+  // Bottom padding
+  .pb-#{$space} {
+    padding: 0 0 #{$space}rem 0;
+  }
+  // Left padding
+  .pl-#{$space} {
+    padding: 0 0 0 #{$space}rem;
+  }
+  // Right padding
+  .pr-#{$space} {
+    padding: 0 #{$space}rem 0 0;
+  }
+}
+
+// All around  auto margin
+.m-auto {
+  margin: auto;
+}
+// Vertical auto margin
+.my-auto {
+  margin: auto 0;
+}
+// Horizontal auto margin
+.mx-auto {
+  margin: 0 auto;
+}
+
+/* 0.5rem margin*/
+.m-half {
+  margin: 0.5rem;
+}
+// Vertical margin
+.my-half {
+  margin: 0.5rem 0;
+}
+// Horizontal margin
+.mx-half {
+  margin: 0 0.5rem;
+}
+// Top margin
+.mt-half {
+  margin: 0.5rem 0 0 0;
+}
+// Bottom margin
+.mb-half {
+  margin: 0 0 0.5rem 0;
+}
+// Left margin
+.ml-half {
+  margin: 0 0 0 0.5rem;
+}
+// Right margin
+.mr-half {
+  margin: 0 0.5rem 0 0;
+}
+
+/* 0.2rem margin*/
+.m-qter {
+  margin: 0.2rem;
+}
+// Vertical margin
+.my-qter {
+  margin: 0.2rem 0;
+}
+// Horizontal margin
+.mx-qter {
+  margin: 0 0.2rem;
+}
+// Top margin
+.mt-qter {
+  margin: 0.2rem 0 0 0;
+}
+// Bottom margin
+.mb-qter {
+  margin: 0 0 0.2rem 0;
+}
+// Left margin
+.ml-qter {
+  margin: 0 0 0 0.2rem;
+}
+// Right margin
+.mr-qter {
+  margin: 0 0.2rem 0 0;
+}
+
+/** Max width */
+$max-width: 1100px;
