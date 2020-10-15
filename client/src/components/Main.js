@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 // Components
+import Jumbo from '../components/jumbo/Jumbo';
+import Navbar from '../components/navbar/Navbar';
 
 // Functions
 import { getRestaurants } from '../actions/restaurant';
@@ -20,7 +22,12 @@ const Main = ({
 		getRestaurants();
 	}, [getRestaurants]);
 
-	return <div className="main">Main</div>;
+	return (
+		<div className="main">
+			<Navbar />
+			<Jumbo />
+		</div>
+	);
 };
 
 Main.propTypes = {
