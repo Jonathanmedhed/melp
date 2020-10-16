@@ -47,6 +47,229 @@ img {
 }
 
 /***********************************************************************
+Body
+***********************************************************************/
+.body {
+  display: flex;
+  flex-direction: column;
+  .title-separator {
+    max-width: 100%;
+    color: $white-light-color;
+    background-color: $primary-color;
+    text-align: center;
+  }
+}
+.restaurant-hor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  border: solid 2px $gray-color;
+  padding: 1rem 0 1rem 0;
+  .name {
+    font-weight: bold;
+  }
+}
+.restaurant-ver {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 2px $gray-color;
+  padding: 1rem 0 1rem 0;
+  max-width: 20rem;
+  min-width: 20rem;
+  .name {
+    font-weight: bold;
+  }
+  .rating {
+    margin-top: 0.2rem;
+  }
+  .address {
+    padding: 1rem;
+  }
+}
+
+/***********************************************************************
+Dataview
+***********************************************************************/
+// container
+.p-dataview.p-component.p-dataview-list,
+.p-dataview.p-component.p-dataview-grid {
+  max-width: 30rem;
+  min-width: 30rem;
+  //body container
+  .p-grid.p-nogutter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.dataview-header {
+  display: flex;
+  flex: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  .p-button.p-button-icon-only {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.2rem;
+    border: solid 2px $primary-color;
+    color: $primary-color;
+  }
+  .p-button.p-button-icon-only:nth-child(2) {
+    margin-left: 0.2rem;
+  }
+  .p-button.p-button-icon-only.p-highlight {
+    background-color: $primary-color;
+    color: $white-light-color;
+  }
+
+  //Dropdown
+  .p-dropdown.p-component {
+    border: solid 2px $light-color;
+  }
+
+  .p-dropdown.p-component .p-dropdown-trigger {
+    border-left: solid 2px $light-color;
+    color: $light-color;
+  }
+
+  .p-dropdown.p-component .p-dropdown-trigger:hover {
+    color: $dark-color;
+  }
+
+  .p-dropdown-items {
+    color: $dark-color;
+    background-color: whitesmoke;
+  }
+
+  .p-dropdown-item:hover {
+    border: solid 1px $dark-color;
+  }
+  .p-dropdown-item.p-highlight {
+    background-color: $dark-color;
+    border: solid 1px $dark-color;
+    color: $white-color;
+    &:hover {
+      border: solid 1px $light-color;
+    }
+  }
+
+  .p-dropdown-items-wrapper::-webkit-scrollbar {
+    width: 1rem;
+  }
+
+  .p-dropdown-items-wrapper {
+    scrollbar-width: thin;
+    scrollbar-color: $light-color #f4f4f4;
+    border: solid 2px $light-color;
+  }
+
+  .p-dropdown-items-wrapper::-webkit-scrollbar-track {
+    background: #f4f4f4;
+    border-left: solid 2px $light-color;
+  }
+
+  .p-dropdown-items-wrapper::-webkit-scrollbar-thumb {
+    background-color: $light-color;
+  }
+
+  .p-dropdown-label.p-inputtext {
+    font-weight: bold;
+  }
+
+  .p-dropdown-items.p-dropdown-list.p-component .p-dropdown-item:hover {
+    background: $light-color;
+  }
+}
+// Dataview body
+.p-dataview.p-component.p-dataview-list,
+.p-dataview.p-component.p-dataview-grid {
+  padding: 0.1rem 1rem 0.1rem 1rem;
+  border: solid 2px $gray-color;
+
+  .p-dataview-header {
+    .p-grid {
+      display: flex;
+      flex: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      .p-button.p-button-icon-only {
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 0.2rem;
+        border: solid 2px $primary-color;
+        color: $primary-color;
+      }
+      .p-button.p-button-icon-only:nth-child(2) {
+        margin-left: 0.2rem;
+      }
+      .p-button.p-button-icon-only.p-highlight {
+        background-color: $primary-color;
+        color: $white-light-color;
+      }
+    }
+  }
+  // Paginator
+  .p-paginator.p-component.p-paginator-top,
+  .p-paginator.p-component.p-paginator-bottom {
+    border-top: solid 2px $gray-color;
+    border-bottom: solid 2px $gray-color;
+    padding: 0.5rem 0 0.5rem 0;
+    // arrows and page number
+    span,
+    button {
+      font-size: 1.2rem;
+    }
+    // highlighted page number
+    .p-paginator-page.p-paginator-element.p-link.p-highlight {
+      background-color: $primary-color;
+      color: $white-light-color;
+      padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+      border-radius: 0.2rem;
+    }
+    .p-paginator-next.p-paginator-element.p-link,
+    .p-paginator-last.p-paginator-element.p-link,
+    .p-paginator-prev.p-paginator-element.p-link,
+    .p-paginator-first.p-paginator-element.p-link {
+      color: $primary-color;
+    }
+    .p-paginator-next.p-paginator-element.p-link.p-disabled,
+    .p-paginator-last.p-paginator-element.p-link.p-disabled,
+    .p-paginator-prev.p-paginator-element.p-link.p-disabled,
+    .p-paginator-first.p-paginator-element.p-link.p-disabled {
+      color: $gray-color;
+    }
+  }
+
+  .p-paginator.p-component.p-paginator-bottom {
+    margin-top: 1rem;
+    border-bottom: none;
+  }
+  .p-paginator.p-component.p-paginator-top {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 45rem) {
+  .p-dataview.p-component.p-dataview-list,
+  .p-dataview.p-component.p-dataview-grid {
+    max-width: 35rem;
+    min-width: 35rem;
+  }
+}
+@media (max-width: 22.5rem) {
+  .p-dataview.p-component.p-dataview-list,
+  .p-dataview.p-component.p-dataview-grid {
+    max-width: 20rem;
+    min-width: 20rem;
+  }
+}
+
+/***********************************************************************
 Jumbo
 ***********************************************************************/
 .jumbo {
@@ -131,6 +354,65 @@ Navbar
     }
     i {
       color: red;
+    }
+  }
+}
+
+/***********************************************************************************
+Rating 
+***********************************************************************************/
+
+.p-rating .p-rating-icon.p-rating-cancel.pi.pi-ban {
+  color: red;
+}
+
+.p-rating span {
+  color: #ffd700;
+}
+
+.p-rating span {
+  color: #ffd700;
+}
+
+.p-rating.p-disabled .p-rating-icon.p-rating-cancel.pi.pi-ban {
+  color: rgb(167, 167, 167);
+}
+
+.p-rating.p-disabled span {
+  color: rgb(167, 167, 167);
+}
+
+/***********************************************************************************
+Restaurant Component 
+***********************************************************************************/
+
+.restaurant {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 1rem;
+  // restaurant info
+  .info-card {
+    max-width: 20rem;
+    min-width: 20rem;
+    border: solid 2px $primary-color;
+    padding: 1rem;
+    .name {
+      font-size: 2rem;
+    }
+    .rating {
+      font-size: 1.5rem;
+    }
+    .address {
+      font-size: 1.2rem;
+    }
+  }
+  // option buttons and map container
+  .map-buttons {
+    .map {
+      min-width: 50rem;
+      min-height: 30rem;
+      border: solid 2px red;
     }
   }
 }
