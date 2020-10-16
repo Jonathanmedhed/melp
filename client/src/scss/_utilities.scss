@@ -779,15 +779,6 @@ Icons
     &.fa-facebook:hover {
       background: lighten($facebook-color, 10%);
     }
-    &.fa-envelope {
-      background-color: $email-color;
-      &.dark {
-        background-color: $gray-color;
-      }
-    }
-    &.fa-envelope:hover {
-      background: lighten($email-color, 10%);
-    }
     &.fa-instagram {
       background-color: $instagram-color;
       &.dark {

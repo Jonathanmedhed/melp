@@ -58,19 +58,15 @@ Body
     background-color: $primary-color;
     text-align: center;
   }
-}
-.restaurant-hor {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  border: solid 2px $gray-color;
-  padding: 1rem 0 1rem 0;
-  .name {
-    font-weight: bold;
+  .content {
+    display: flex;
+    flex-direction: row;
+    .map {
+    }
   }
 }
-.restaurant-ver {
+.restaurant-ver,
+.restaurant-ver-highlighted {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,15 +74,63 @@ Body
   padding: 1rem 0 1rem 0;
   max-width: 20rem;
   min-width: 20rem;
+  margin-bottom: 0.1rem;
   .name {
     font-weight: bold;
+    font-size: 1.2rem;
   }
   .rating {
     margin-top: 0.2rem;
   }
   .address {
     padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
   }
+  .options {
+    display: flex;
+    flex-direction: row;
+    i {
+      padding: 0 0.3rem 0 0.3rem;
+    }
+    .fa-map-marker-alt {
+      color: $danger-color;
+      font-size: 1.2rem;
+      &:hover {
+        cursor: pointer;
+        color: $danger-dark-color;
+      }
+    }
+    .fa-chrome {
+      color: $success-color;
+      font-size: 1.2rem;
+      &:hover {
+        cursor: pointer;
+        color: $success-dark-color;
+      }
+    }
+    .fa-envelope {
+      color: blue;
+      font-size: 1.2rem;
+      &:hover {
+        cursor: pointer;
+        color: rgb(0, 0, 185);
+      }
+    }
+    .fa-phone {
+      color: rgb(221, 221, 0);
+      font-size: 1.2rem;
+      &:hover {
+        cursor: pointer;
+        color: yellow;
+      }
+    }
+  }
+}
+
+.restaurant-ver-highlighted {
+  border: solid 2px $primary-color;
 }
 
 /***********************************************************************
@@ -101,8 +145,28 @@ Dataview
   .p-grid.p-nogutter {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    max-height: 27rem;
+    overflow-y: auto;
+
+    // scrollbar
+    scrollbar-width: thin;
+    scrollbar-color: $primary-color $white-color;
+
+    &::-webkit-scrollbar {
+      width: 0.4rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $white-dark-color;
+      border-radius: 0.2rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $primary-color;
+      border-radius: 6px;
+      border: 1px solid $white-color;
+    }
   }
 }
 .dataview-header {
@@ -228,6 +292,11 @@ Dataview
     .p-paginator-page.p-paginator-element.p-link.p-highlight {
       background-color: $primary-color;
       color: $white-light-color;
+      padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+      border-radius: 0.2rem;
+    }
+    // default page number
+    .p-paginator-page.p-paginator-element.p-link {
       padding: 0.3rem 0.5rem 0.3rem 0.5rem;
       border-radius: 0.2rem;
     }
