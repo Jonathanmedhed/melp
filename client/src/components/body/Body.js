@@ -6,6 +6,8 @@ import { DataView } from 'primereact/dataview';
 import { Dropdown } from 'primereact/dropdown';
 import { Rating } from 'primereact/rating';
 import { GMap } from 'primereact/gmap';
+import { FacebookProvider, Like } from 'react-facebook';
+import { FacebookShareButton, FacebookIcon } from 'react-share';
 
 const Body = ({ restaurants, loading, toBody, toMap }) => {
 	const [selectedRestaurant, setSelectedRestaurant] = useState(null);
@@ -72,7 +74,18 @@ const Body = ({ restaurants, loading, toBody, toMap }) => {
 					<a href={`tel:${data.contact.phone}`}>
 						<i class="fas fa-phone"></i>
 					</a>
+					<FacebookShareButton
+						url={data.contact.site}
+						quote={'Check out this amazing restaurant'}
+						hashtag={`#${data.name}`}
+						className="facebook-share"
+					>
+						<i class="fab fa-facebook-square"></i>
+					</FacebookShareButton>
 				</div>
+				<FacebookProvider appId="717589285046812">
+					<Like href="https://www.facebook.com/subway/" colorScheme="dark" showFaces={false} share={false} />
+				</FacebookProvider>
 			</div>
 		);
 	};
@@ -112,7 +125,7 @@ const Body = ({ restaurants, loading, toBody, toMap }) => {
 					sortOrder={sortOrder}
 					sortField={sortField}
 				/>
-				{selectedRestaurant ? (
+				{/**selectedRestaurant ? (
 					<Fragment>
 						<GMap
 							options={{
@@ -137,7 +150,7 @@ const Body = ({ restaurants, loading, toBody, toMap }) => {
 					</Fragment>
 				) : (
 					<GMap options={options} className="map" style={{ width: '100%' }} />
-				)}
+				)*/}
 				<div className="options-mobile">
 					<div className="btn btn-primary" onClick={() => toBody()}>
 						Go to list

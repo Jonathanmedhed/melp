@@ -178,11 +178,36 @@ Body
         color: yellow;
       }
     }
+    .fa-facebook-square {
+      color: $facebook-color;
+      font-size: 1.3rem;
+      &:hover {
+        cursor: pointer;
+        color: $facebook-dark-color;
+      }
+    }
+  }
+  .face-options {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.2rem;
+    .share {
+      display: flex;
+      flex-direction: row;
+      .text {
+        padding-left: 0.2rem;
+      }
+    }
   }
 }
-
 .restaurant-ver-highlighted {
   border: solid 2px $primary-color;
+}
+// Facebook like component
+.fb-like.fb_iframe_widget {
+  max-width: 18.1rem;
+  overflow-x: hidden;
+  margin-top: 0.5rem;
 }
 
 /***********************************************************************
