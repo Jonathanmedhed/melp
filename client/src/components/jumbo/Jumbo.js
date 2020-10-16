@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Jumbo = () => {
+const Jumbo = ({ toBody }) => {
 	return (
 		<div className="jumbo">
 			<img src={require('../../img/jumbo.jpg')} className="bg-pic"></img>
@@ -10,7 +10,9 @@ const Jumbo = () => {
 					<i className="fas fa-utensils"></i>
 				</div>
 				<div className="intro">Find the restaurant that suits your needs</div>
-				<div className="btn btn-primary">Go get them!</div>
+				<div onClick={() => toBody()} className="btn btn-primary">
+					Go get them!
+				</div>
 			</div>
 		</div>
 	);

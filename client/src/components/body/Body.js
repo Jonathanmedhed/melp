@@ -1,13 +1,13 @@
 /*global google*/
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 
-import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
-import { Button } from 'primereact/button';
+// Components
+import { DataView } from 'primereact/dataview';
 import { Dropdown } from 'primereact/dropdown';
 import { Rating } from 'primereact/rating';
 import { GMap } from 'primereact/gmap';
 
-const Body = ({ restaurants, loading }) => {
+const Body = ({ restaurants, loading, toBody, toMap }) => {
 	const [selectedRestaurant, setSelectedRestaurant] = useState(null);
 
 	//Gmap
@@ -62,7 +62,7 @@ const Body = ({ restaurants, loading }) => {
 					</div>
 				</div>
 				<div className="options">
-					<i onClick={() => setSelectedRestaurant(data)} className="fas fa-map-marker-alt"></i>
+					<i onClick={() => toMap()} className="fas fa-map-marker-alt"></i>
 					<a href={data.contact.site}>
 						<i class="fab fa-chrome"></i>
 					</a>
@@ -100,7 +100,7 @@ const Body = ({ restaurants, loading }) => {
 
 	return (
 		<div className="body">
-			<div className="title-separator">Best Restaurans in Town</div>
+			<div className="title-separator">Restaurans in Town</div>
 			<div className="content">
 				<DataView
 					value={restaurants && restaurants}
@@ -113,28 +113,36 @@ const Body = ({ restaurants, loading }) => {
 					sortField={sortField}
 				/>
 				{selectedRestaurant ? (
-					<GMap
-						options={{
-							center: {
-								lat: selectedRestaurant.address.location.lat,
-								lng: selectedRestaurant.address.location.lng,
-							},
-							zoom: 12,
-						}}
-						overlays={[
-							new google.maps.Marker({
-								position: {
+					<Fragment>
+						<GMap
+							options={{
+								center: {
 									lat: selectedRestaurant.address.location.lat,
 									lng: selectedRestaurant.address.location.lng,
 								},
-								title: 'Ataturk Park',
-							}),
-						]}
-						style={{ width: '100%', minHeight: '35rem', maxHeight: '35rem' }}
-					/>
+								zoom: 12,
+							}}
+							overlays={[
+								new google.maps.Marker({
+									position: {
+										lat: selectedRestaurant.address.location.lat,
+										lng: selectedRestaurant.address.location.lng,
+									},
+									title: 'Ataturk Park',
+								}),
+							]}
+							className="map"
+							style={{ width: '100%' }}
+						/>
+					</Fragment>
 				) : (
-					<GMap options={options} style={{ width: '100%', minHeight: '35rem', maxHeight: '35rem' }} />
+					<GMap options={options} className="map" style={{ width: '100%' }} />
 				)}
+				<div className="options-mobile">
+					<div className="btn btn-primary" onClick={() => toBody()}>
+						Go to list
+					</div>
+				</div>
 			</div>
 		</div>
 	);
