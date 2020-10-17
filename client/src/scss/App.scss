@@ -52,6 +52,13 @@ Body
 .body {
   display: flex;
   flex-direction: column;
+  .absolute {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+  }
   .title-separator {
     max-width: 100%;
     color: $white-light-color;
@@ -60,6 +67,27 @@ Body
     font-size: 1.2rem;
     font-weight: bold;
     padding: 0.2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    .search {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      border: solid 2px $white-light-color;
+      border-radius: 1rem;
+      padding: 0.2rem 1rem 0.2rem 1rem;
+      &:hover {
+        cursor: pointer;
+        color: $white-dark-color;
+        border: solid 2px $white-dark-color;
+      }
+      i {
+        margin-left: 0.5rem;
+      }
+    }
   }
   .content {
     display: flex;
@@ -208,6 +236,44 @@ Body
   max-width: 18.1rem;
   overflow-x: hidden;
   margin-top: 0.5rem;
+}
+
+/***********************************************************************
+Checkbox
+***********************************************************************/
+
+.p-checkbox.p-component {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: solid 2px $primary-color;
+  border-radius: 0.2rem;
+  &:hover {
+    border: solid 2px $dark-color;
+  }
+}
+// checked box
+.p-checkbox.p-component.p-checkbox-checked {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: aqua;
+}
+// checked box container
+.p-checkbox-box.p-component.p-clickable {
+  color: $white-light-color;
+}
+// checked box
+.p-checkbox-box.p-component.p-clickable.p-highlight {
+  background-color: $primary-color;
+  &:hover {
+    background-color: $dark-color;
+  }
+  // check icon
+  .p-checkbox-icon.p-clickable.pi.pi-check {
+    font-size: 0.8rem;
+    border-radius: 0.2rem;
+    padding: 0.2rem;
+  }
 }
 
 /***********************************************************************
@@ -412,6 +478,147 @@ Dataview
   .p-dataview.p-component.p-dataview-grid {
     max-width: 20rem;
     min-width: 20rem;
+  }
+}
+
+/***********************************************************************************************
+Dialog Prime  
+***********************************************************************************************/
+
+.p-dialog.p-component {
+  background-color: $white-color;
+  border-top: solid 2px $gray-color;
+  border-right: solid 3px $gray-dark-color;
+  border-bottom: solid 3px $gray-dark-color;
+  border-left: solid 2px $gray-color;
+  // header
+  .p-dialog-header {
+    background-color: $primary-color;
+    color: $white-light-color;
+    padding: 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    // close icon
+    .p-dialog-header-close-icon.pi.pi-times {
+      color: $white-light-color;
+      border: solid 2px $white-light-color;
+      border-radius: 0.2rem;
+      padding: 0.2rem;
+      &:hover {
+        color: $light-color;
+        border: solid 2px $light-color;
+      }
+    }
+    // text
+    .p-dialog-title {
+      padding-right: 0.5rem;
+    }
+  }
+  // Content
+  .p-dialog-content {
+    padding: 1rem;
+    .dialog-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      input,
+      textarea {
+        padding: 0.5rem;
+        font-size: 1rem;
+        border: solid 2px $light-color;
+        border-radius: 0.2rem;
+        margin-bottom: 0.5rem;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      textarea {
+        font-size: 1.3rem;
+      }
+      .label {
+        width: 100%;
+        font-weight: bold;
+        color: $dark-color;
+      }
+    }
+    .success-message {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    // Forms
+    .top-options {
+      display: flex;
+      flex-direction: column;
+      border-radius: 0.2rem;
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0.5rem;
+        .range {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          .p-inputnumber.p-component {
+            input {
+              max-width: 3rem;
+              text-align: center;
+            }
+          }
+        }
+        :first-child {
+          margin-top: 0;
+        }
+        .label {
+          font-weight: bold;
+        }
+        .selected-loc {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-evenly;
+          margin-top: 0.2rem;
+          .btn {
+            margin-top: 0;
+          }
+        }
+      }
+      .btn {
+        margin-top: 1rem;
+        align-self: center;
+      }
+    }
+  }
+  // footer
+  .p-dialog-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-top: solid 1px $gray-color;
+    .save-buttons {
+      .btn {
+        max-width: 6rem;
+        min-width: 6rem;
+        text-align: center;
+        &:last-child {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+/***********************************************************************
+Input Number
+***********************************************************************/
+
+.p-inputnumber.p-component {
+  input {
+    border: solid 2px $primary-color;
+    border-radius: 0.2rem;
+    padding: 0.2rem;
   }
 }
 
